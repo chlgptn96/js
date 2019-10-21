@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>좌표계 연습</title>
+    <style>
+        /* 기본적으로는 상대 좌표계 */
+    .container {
+        position: relative;
+        border: 2px solid;
+        height: 100px;
+        margin-top: 50px;
+        overflow: scroll;
+        
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: red;
+    }
+    .box{
+        /* 절대 좌표계 이용 */
+        position: absolute;
+        width: 100px;
+        height: 100px;
+    }
+    .box:nth-child(1) {
+        background-color: red;
+        left: 10px;
+        top: 10px;
+    }
+    .box:nth-child(2) {
+        background-color: green;
+        z-index: 10; /* z축 우선순위 설정 */
+        left: 50px;
+        top: 50px;
+    }
+    .box:nth-child(3) {
+        background-color: blue;
+        left: 90px;
+        top: 90px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

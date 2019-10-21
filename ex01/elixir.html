@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Bit Lounge 건강음료</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <style>
+    /* ID 선택자 : # */
+    #green {
+      background-color: lightgreen;
+    }
+    #lightblue {
+      background-color: lightblue;
+    }
+    #blue {
+      background-color: blue;
+    }
+    #red {
+      background-color: red;
+    }
+    /* 클래스 선택자 : ,  */
+    .beverage{
+      margin: 20px;
+      padding: 20px;
+    }
+    /* 자손 선택자 */
+    .beverage h1{
+      font-size: 1.5em;
+    }
+      /* 자식 선택자 > */
+      .menu > li {
+        background-color: grey;
+      }
+      /* 
+      구조 선택자 : -child 
+      .menu > li:first-child{
+        background-color: rgba(0,128,0,0.1);
+      }
+      .menu > li:nth-child(2){
+        background-color: rgba(0, 0, 255, 0.1);
+      }
+      .menu > li:nth-child(3){
+        background-color: rgba(122, 0, 128, 0.1);
+      }
+      .menu > li:last-child(){
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+      */
+      /* border 속성 */
+      .beverage {
+        /* 3가지 속성 */
+        border-width: 3px;
+        border-style: dotted;
+        border-color: rgb(30, 192, 128);
+        /* border: 3px dotted rgb(30, 192, 128); */
+        /* 순서에 유의 width, style color 순 */
+      }
+        /* border-radius 속성 */
+        .seller img {/* .seller의 자손 img 태그 */
+          border-radius: 20px; /* 모든 방향의 둥굴기*/
+          border-radius: 10px 20px 30px 40px;
+          /* 좌상단 우상단 우하단 좌하단 */
+          border-radius: 10px 50px;
+          /* 좌상단.우하단 우상단.좌하단*/
+          border-radius: 50%; /* SNS스타일 */
+      }
+         /* display 속성과 visibillity 속성*/
+         .seller img{
+          /* visibility: hidden; */
+          display: none;
+      }
+        /* background 속성 */
+        body{
+          
+          background-image: url('images/Landscape.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: bottom;
+          background-size: 100%;
+
+          background: url('/images/Landscape.jpg')
+                      bottom 
+                      / 100% 
+                      no-repeat 
+                      fixed
+                      lightgray
+
+        }
+        /* 글꼴 속성 */
+        .beverage h2{
+          font-size: 1.5em;
+          /* 브라우저 기본 글꼴 사이즈는 16px */
+          /* 1.5em = 150% = 32px */
+          font-style: italic;
+          font-weight: bolder;
+          text-decoration: underline;
+        }
+
+        header h1 {
+          font-family: "궁서체","신명조체", serif;
+          /* 앞에서부터 차례로 글꼴이 있는지 검색
+            없으면 뒤쪽 후보 글꼴 선택
+            가장 마지막에는 일반 글꼴 명시해 줘야 한다
+            일반 글꼴
+            serif : 명조 계열
+            snas-serif : 고딕 계열
+            monospace : 고정폭 글꼴 계열
+           */
+        }
+        /* float 속성 */
+        .menu > li {
+          float: left;
+          width: 100px;
+          height: 30px;
+          list-style-type: none;
+          text-align: center;
+          background-color: black;
+          color: yellow;
+          margin-left: 10px;
+        }
+        li a:link  {
+          color: yellow;
+        }
+        li a:visited {
+          color: yellow;
+          font-weight: bold;
+        }
+
+      
+    </style>
+    
+  </head>
+    <body>
+      <!-- header 시맨틱 태그 : 검색엔진에게 추가 정보를 부여-->
+      <header><h1>건강 음료</h1></header>
+      <!-- 페이지 네비게이션 관련 내용을 담고 있는 시맨틱 태그-->
+      <nav>
+        <!--ul : 순서 없는 목록, ol : 순서 있는 목록-->
+        <ul class="menu">
+          <li><a href="#green">Green</a></li>
+          <li><a href="#lightblue">light blue</a></li>
+          <li><a href="#blue">blue</a></li>
+          <li><a href="#red">red</a></li>
+          <!--id표기법 : # -->
+
+        </ul>
+      </nav>
+
+      <div class="seller">
+        <img src="/images/Penguins.jpg">
+      </div>
+      
+      <!-- article 시맨틱 태그 : 중요 정보가 위치한 곳이라는 것을 검색엔진에게 알려줌-->
+      <article>
+        <section id="green">
+          <div class="green beverage">
+          <!--id 속성 : 문서 내에서 요소를 식별하기 위한 유일한 값:중복되면 안됨-->
+<h2>Green Tea Cooler</h2>
+<img src="./images/green.jpg" alt="Green Tea Cooler"/>
+<p>Chock full of vitamins and minerals, this elixir combines the healthful benefits of green tea with a twist of chamomile blossoms and ginger root.</p>
+          </div>
+        </section>
+        <section id="lightblue">
+            <div class="lightblue beverage">
+<h2>Raspberry Ice Concentration</h2>
+<img src="/images/lightblue.jpg" alt="Raspberry Ice Concentration"/>
+<p>Combining raspberry juice with lemon grass, citrus peel and rosehips, this icy drink will make your mind feel clear and crisp.</p>
+            </div>  
+        </section>
+        <section id="blue">
+            <div class="blue beverage">
+<h2>Blueberry Bliss Elixir</h2>
+<img src="/images/blue.jpg" alt="Blueberry Bliss Elixir"/>
+<p>Blueberries and cherry essence mixed into a base of elderflower herb tea will put you in a relaxed state of bliss in no time.</p>
+            </div>  
+        </section>
+        <section id="red">
+            <div class="red beverage">
+<h2>Cranberry Antioxidant Blast</h2>
+<img src="/images/red.jpg" alt="Cranberry Antioxidant Blast"/>
+<p>Wake up to the flavors of cranberry and hibiscus in this vitamin C rich elixir.</p>
+            </div>
+        </section>
+      </article>
+      <nav>
+<p><a href="index.html">메인으로 돌아가기</a></p>
+
+      </nav>
+    </body>
+</html>

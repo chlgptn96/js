@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iPhones</title>
+    <style>
+        #product-info img.selected {
+            width: 225px;
+            height: 265px;
+            float: left;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+        }
+
+        #product-list li {
+            list-style-type: none;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+            float: left;
+        }
+
+        #product-list li img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="product-info">
+        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS">
+        <h2>iPhone Xs</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <h3>Products</h3>
+        <ul id="product-list">
+            <li><img class="sub-image" src="/images/iphone-xs.jpeg" title="iPhone XS"></li>
+            <li><img class="sub-image" src="/images/iphone-xr.jpeg" title="iPhone XR"></li>
+            <li><img class="sub-image" src="/images/iphone8.jpeg" title="iPhone 8"></li>
+            <li><img class="sub-image" src="/images/ipad-mini.jpeg" title="iPad Mini"></li>
+        </ul>
+        <input type="text" id="keyword" />
+        <!-- Inline Event -->
+        <button id="btn-search" onclick="alert(this.innerText);">검색</button>
+    </div>
+    <script>
+    function testAttribute(){
+        // 특정 ID를 가진 요소의 검색
+        var obj = document.getElementById("main-image");
+        console.log("main-image : ", obj);
+        // #main-image 요소가 가진 모든 속성들 확인
+        console.log(obj.getAttributeNames());
+        // title 속성 받아오기
+        var title = obj.getAttribute("title"); // title 속성 확인
+        console.log("TITLE : ", title);
+        // 타이틀 속성 변경 : setAttribute
+        obj.setAttribute("title", "추천상품 : " + title);
+        console.log("변경된 title 속성 : ", obj.getAttribute("title"));
+
+        // 하단 Products 이미지들의 title 속성도 변경해 봅시다.
+        // 요소들 선택 : getElementsByClassName
+        var subs = document.getElementsByClassName("sub-image");
+        console.log(".sub-image : ", subs);
+        console.log(subs.__proto__);    // HTMLCollection(일종의 배열)
+        // 직접 접근은 안되고 index 접근을 해야 한다(1개 일지라도)
+        for(var i = 0; i<subs.length; i++){
+            subs[i].setAttribute("title", "사진 : " + subs[i].getAttribute("title"));
+        }
+    }
+    // testAttribute();
+/*
+    document.getElementById("keyword").onkeyup = function(event){
+      // console.log("EVENT: ", event);
+      console.log("Event Name : ", event.name);
+      console.log("Event를 발생시킨 객체 : ", event.target); //중요
+      console.log("눌러진 키 : ", event.keyCode); // 한글은 안넘어와요
+      console.log("입력창에 입력된 내용 : ", event.target.value);
+      
+      //검색 버튼 찾기
+      var btn = document.getElementById("btn-search");
+      btn.innerText = event.target.value + " 검색";
+    }
+    //스크립트 혹은 이벤트 리스너 등은 문서가 모두 로드된 상황에서 연결하는 것이 가장 좋은 패턴
+    //window 객체의 load 이벤트에서 초기화하는 것이 바람직하다.
+*/
+    window.addEventListener("load", function(event){
+        console.log("문서 로드 완료!");
+        // keyword input에서 keyup이 발생했을 경우의 이벤트 연결
+        document.getElementById("keyword").addEventListener("keyup", function(event){
+            var btn = document.getElementById("btn-search");
+            btn.innerText = event.target.value  + "검색";
+        });
+        // sub-image 클래스를 가진 요소를 클릭하면 sub-image의 src와 title을 
+        // main-image의 src와 #product-info의 h2로 이동
+        var products = document.getElementsByClassName("sub-image");
+        // console.log("Products : ", products);
+        for (var i=0; i<products.length; i++){
+            var product = products[i];
+            console.log("PRODUCT: ", product);
+            // 이벤트 리스너 부착
+            product.addEventListener("click", function (event) {
+                var obj = event.target; //이벤트를 발생시킨 객체
+                // 현재 obj는 ing 태그 : src 속성, title 속성이 있을 것
+                var mainImage = document.getElementById("main-image");
+                mainImage.setAttribute("src", obj.getAttribute("src"));
+                mainImage.setAttribute("title", obj.getAttribute("title"));
+
+                document.querySelector("#product-info > h2").innerText = obj.getAttribute("title");
+                
+            })
+        }
+    })
+    </script>
+</body>
+
+</html>

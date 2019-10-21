@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>멤버쉽 가입</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <style>
+    /* 속성 선택자 */
+    [type]{
+        background-color: beige;
+    }
+    input[type="text"]{
+        background-color: lightgreen;
+    }
+    input[type="password"]{
+        background-color: lightbluex;
+    }
+    input:focus{
+        background-color: pink;
+    }
+    </style>
+    <script>
+        // submit 이벤트 핸들러
+    function checkForm(){
+        // 폼 검증을 위해 Form 객체를 받아옵시다
+        var frm = document.registerForm; // form의 name 속성 참조
+        if(!checkId(frm)){
+            return false; //onsubmit에 false를 return하면 전송 취소
+        }
+        if(!checkPassword(frm)){
+            return false;
+        }
+        if(!checkFavorite(frm)){
+            return false;
+        }
+        checkFavorite(frm);
+    
+
+        return true; // onsubmit에 true를 return하면 전송
+    } 
+
+    function checkId(frm){
+        // userid의 길이가 4글자 이상 8글자 이하
+        var userid = frm.userid.value;
+        if(userid.trim().length < 4 ||
+           userid.trim().length > 8 ){
+            alert("사용자 아이디는 4자 이상, 8자 이하로 해 주세요");
+            frm.userid.focus();
+            return false; // 검증 실패
+        }
+        // 추가로 검증해야 할 내용들
+        // 사용 문자, 공백 여부 등등...
+        return true;
+    }
+
+
+    function checkPassword(frm){
+        // password의 길이가 4글자 이상 8글자 이하
+        var password = frm.password.value;
+        if(password.trim().length < 4 ||
+           password.trim().length > 8){
+           alert("비밀번호는 4자 이상, 8자 이하로 해 주세요");
+           frm.password.focus();
+           return false; //검증 실패        
+        }
+        return true; //검증 성공
+    }
+
+    function checkFavorite(frm){
+        // 선호 음료 (checkbox)의 체크 개수 확인
+        // 1개 이상 선택
+        // 아무 것도 선택하지 않으면 검증 실패
+        var checkedCount = 0;
+        for(var i=0; i < frm.favorite.length; i++){
+            // 개별 체크박스 확인
+            var cb = frm.favorite[i];
+            if(cb.checked){ //checkbox의 체크 여부 확인(boolean)
+                console.log(cb.value, "is checked");
+                checkedCount ++;
+            }
+        }
+        if(checkedCount == 0){
+            alert("최소 1개 이상의 선호 음료를 선택해주세요");
+        }
+        return checkedCount !=0;
+    }
+
+    function checkTelecom(frm){
+        // select 박스
+        // 선택된 옵션의 인덱스를 구할 수 있다.
+        var selectedIndex = frm.telecom.selectedIndex; //선택된 항목의 인덱스
+        console.log("선택 항목 인덱스 : ", selectedIndex);
+        var selectedOption = frm.telecom[selectedIndex];
+        console.log("선택한 Option : ", selectedOption);
+        console.log("선택 옵션의 값 : ", selectedOption.value);
+        console.log("선택 옵션의 Text : ", selectedOption.innerText);
+    }
+
+
+    </script>
+</head>
+<body>
+    <h1>멤버쉽 가입</h1>
+    <form name="registerForm" onsubmit="return checkForm();">
+        <fieldset><!-- 입력 폼을 그룹화-->
+            <legend>회원 가입</legend>
+            <label for="userid">아이디</label>
+            <input type="text" name="userid" id="userid"><br/>
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" id="password"><br/>
+            <label for="gender">성별</label>
+            <input type="radio" name="gender" value="F" checked>여성
+            <!-- checked는 페이지 로딩시 미리 선택상태로 -->
+            <input type="radio" name="gender" value="M">남성</br>
+            <label for="favorite">선호음료</label>
+            <input type="checkbox" name="favorite" id="americano">아메리카노
+            <input type="checkbox" name="favorite" id="latte">라떼
+            <input type="checkbox" name="favorite" id="ade">에이드/음료
+            <br/>
+            <label for="telecom">통신사</label>
+            <select name="telecom">
+                <option value="S">SKT</option>
+                <option value="L">LG</option>
+                <option value="L">KT</option>
+                <option>ETC</option>
+                <!--Option value속성이 없을 경우 표시 텍스트가 value로 대신 전송-->
+            </select>
+            <br/>
+            <input type="button" value="Test" onclick="checkForm()">
+            <input type="submit" value="가입">
+            <input type="reset" value="다시작성">
+        <br/>
+        </fieldset>
+        
+    </form>
+    <p><a href="index.html">메인페이지로 이동</a></p>
+</body>
+</html>

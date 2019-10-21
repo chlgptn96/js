@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/* 웹 사이트 전체의 공통 CSS */
+
+/* 전체 선택자를 이용한 기본 설정 */
+* {
+    margin: 0%;
+    padding: 0%;
+    color: gray;
+}

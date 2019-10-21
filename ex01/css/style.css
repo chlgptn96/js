@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import "main.css"; /* 타 CSS 로드 */
+
+h1{
+    color: yellow;
+    background-color: black;
+}
+/* 상태 선택자 : a */
+a:link{
+    /* 링크가 걸려 있는 상태 */
+    color: blue;
+}
+a:hovor {
+    /* 마우스가 링크 위로 올라와 있는 상태 */
+    font-weight: bold;
+}
+a:active {
+    /* 클릭 상태 */
+    color: red;
+}
+a:visited {
+    /* 이미 방문한 링크인 경우 */
+    color: black;
+}

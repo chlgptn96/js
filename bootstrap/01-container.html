@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+  <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
+
+    <title>Grid System</title>
+    <style>
+    div{
+      border: 1px dotted red;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+    <h1>container Test</h1>
+    <!--컨텐츠 1행-->
+    <div class="row">
+        <div class="col">
+          <h3>Column 1</h3>
+    </div>
+    <div class="col">
+        <h3>Column 2</h3>
+        <p>컬럼의 개수 지정하지 않으면 균등 분할</p>
+    </div>
+    <div class="col">
+        <h3>Column 3</h3>
+    </div>
+  </div>
+    <!-- 새 Row -->
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Column 1</h3>
+        <p>중간 사이즈(md) 이상에서 3/12를 채웁니다.</p>
+      </div>
+      <div class="col-md-9">
+        <h3>Column 2</h3>
+        <p>중간 사이즈(md) 이상에서 9/12를 채웁니다.</p>
+      </div>
+    </div>
+<!-- 새 Row -->
+<div class="row">
+  <div class="col">
+    <h3>Column 1</h3>
+  </div>
+  <div class="col-md-6">
+      <h3>Column 2</h3>
+      <p>중간 사이즈(md) 이상에서 6/12 격자를 차지합니다.</p>
+    </div>
+    <!-- 그리드 개수를 지정하지 않은 col은 나머지 공간을 균등 분할-->
+    <div class="col">
+        <h3>Column 3</h3>
+    </div>
+  </div>
+
+  <!-- 새 Row-->
+  <!-- 모바일 에서는 보이지 않게
+    거꾸로 할 경우
+    ->
+    모바일 전용 콘텐츠 : 장치 사이즈 small 이상에서는 보여주고 
+    그 이하에서는 보여주지 않는다.  -->
+    <div class="row">
+      <div class="col d-none d-sm-block">
+        <h3>Not For SmartPhone</h3>
+        <p>본 섹션은 스마트폰에서는 보이지 않습니다.</p>
+
+      </div>
+    </div>
+
+
+</div>
+
+
+    <div class="container-fluid">
+      <h1>Container-fluid-Test</h1>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+    <script src="/bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>
